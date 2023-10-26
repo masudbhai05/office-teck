@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+body {
+    background-color: #F8F8F8;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* this class is located from SideBar component  */
+.menus li {
+    font-size: 15px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    padding-left: 28px;
+    color: #3F434A;
+    line-height: 1;
+    transition: all 0.3s ease;
+    
+}
+
+.menus li:hover {
+    border-left: 4px solid #304FFD;
+    background-color: #F8F8F8;
+}
+.menus li a {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.status-btn{
+    color: #49C96D;
+    background-color: #49c96d2a;
+    padding: 5px 20px;
+    border-radius: 10px;
+}
+
+.cta-btn {
+    background-color: #304FFD;
+    color: #fff;
+    padding: 8px 24px;
+    border-radius: 15px;
+    box-shadow: 0px 5px 0px -1px #0C21C7;
+}
+
