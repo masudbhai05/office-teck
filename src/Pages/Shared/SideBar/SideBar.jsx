@@ -6,12 +6,12 @@ import { FiUsers, FiLayers, FiClipboard } from "react-icons/fi";
 
 const SideBar = () => {
     return (
-        <div>
+        <div className="w-[270px] h-screen bg-[#000] fixed top-0 z-10">
             <img className="ml-7 mt-5" src="/src/assets/logo.png" alt="" />
-            <ul className=" menus">
+            <ul className=" menus mt-8">
                 {/* Sidebar content here */}
                 <li><Link><RxDashboard></RxDashboard> Dashboard</Link></li>
-                <li><Link to="/employeeinfotable"><FiUsers></FiUsers> Employees</Link></li>
+                <li><Link to="/employee-info-table"><FiUsers></FiUsers> Employees</Link></li>
                 <li><Link><FiLayers></FiLayers> Projects</Link></li>
                 <li><Link><FiClipboard></FiClipboard> Tasks</Link></li>
                 <li><Link><FaRegFolderClosed></FaRegFolderClosed>File Manager</Link></li>

@@ -7,6 +7,16 @@
 body {
     background-color: #F8F8F8;
     font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    position: relative;
+}
+
+/* this is header menu  */
+.app-header{
+position: fixed;
+top: 0;
+width: 100%;
+z-index: 3;
 }
 
 /* this class is located from SideBar component  */
@@ -32,18 +42,30 @@ body {
     gap: 13px;
 }
 
-.status-btn{
+.status-btn-green{
     color: #49C96D;
-    background-color: #49c96d2a;
+    background-color: #2dcd5a17;
+    padding: 5px 20px;
+    border-radius: 10px;
+}
+.status-btn-orange{
+    color: #E56E19;
+    background-color: #e56e1927;
     padding: 5px 20px;
     border-radius: 10px;
 }
 
 .cta-btn {
-    background-color: #304FFD;
-    color: #fff;
-    padding: 8px 24px;
-    border-radius: 15px;
     box-shadow: 0px 5px 0px -1px #0C21C7;
+    padding: 8px 16px;
+}
+.cta-btn:hover {
+    box-shadow: 0px 5px 0px -1px #4c4c4c;
+}
+ 
+.table-data{
+    position: absolute;
+    width: 100%;
+    z-index: 2;
 }
 

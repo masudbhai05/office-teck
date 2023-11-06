@@ -1,17 +1,24 @@
 import { Outlet } from "react-router-dom";
-import SideBar from "../Pages/Shared/SideBar/SideBar";
 import NavBar from "../Pages/Shared/NavBar/NavBar";
+import SideBar from "../Pages/Shared/SideBar/SideBar";
+
 
 const Main = () => {
     return (
-        <div className="flex lg:flex-row w-screen">
-            <div className="w-[15%] h-screen bg-white border-r-2 border-r-[#E8E9EB] ">
-                <SideBar></SideBar>
-            </div>
-            <div className="w-full">
-                <NavBar></NavBar>
+        <div className="relative">
+            <div>
+                <div>
+                    <NavBar></NavBar>
+                </div>
                 <div>
                     <Outlet></Outlet>
+                </div>
+            </div>
+
+            
+            <div>
+                <div className="">
+                    <SideBar></SideBar>
                 </div>
             </div>
         </div>

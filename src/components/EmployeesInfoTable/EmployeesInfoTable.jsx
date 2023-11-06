@@ -1,5 +1,11 @@
 import { useEffect, useState } from "react";
-import { FaPlus} from "react-icons/fa6";
+import { GrSearch } from "react-icons/gr";
+import { HiOutlineAdjustmentsHorizontal } from "react-icons/hi2";
+import { HiDotsVertical } from "react-icons/hi";
+import { RiArrowDropDownLine } from "react-icons/ri";
+import { IoMdArrowDropdown } from "react-icons/io";
+import Button from "../Button/Button";
+import AddEmployeeForm from "../Form/AddEmployeeForm";
 
 const EmployeesInfoTable = () => {
     const [employees, setEmployees] = useState([])
@@ -11,39 +17,74 @@ const EmployeesInfoTable = () => {
     }, [])
 
     console.log(employees);
+
+    const handlMultiValueForm = () => {
+        <AddEmployeeForm></AddEmployeeForm>
+    }
+
     return (
         <>
-            <div>
-                <div className="flex justify-between items-center mx-[30px] mt-4">
-                    <div className="mt-[30px]">
-                        <ul className="flex justify-center items-center gap-4">
-                            <li>All</li>
-                            <li>Active</li>
-                            <li>Blocked</li>
+            <div className="table-data mt-[97px]">
+                <div className="flex justify-between items-center ml-[300px] mr-[30px]">
+                    <div className="">
+                        <ul className="flex justify-center items-center gap-6">
+                            <li>
+                                <button className="pb-3 border-b-2 border-blue-500 active">
+                                    All <div className="badge bg-[#E8E9EB] text-[#8A9099] py-3 ml-2 rounded-md">999</div>
+                                </button>
+                            </li>
+                            <li>
+                                <button className="pb-3 border-b-2 border-blue-500">
+                                    Active <div className="badge bg-[#E8E9EB] text-[#8A9099] py-3 ml-2 rounded-md">999</div>
+                                </button>
+                            </li>
+                            <li>
+                                <button className="pb-3 border-b-2 border-blue-500">
+                                    Blocked <div className="badge bg-[#E8E9EB] text-[#8A9099] py-3 ml-2 rounded-md">999</div>
+                                </button>
+                            </li>
+
                         </ul>
                     </div>
                     <div>
-                        <button className="cta-btn flex justify-center items-center gap-3">
-                           <FaPlus></FaPlus> <span>Add Employee</span>
-                        </button>
+                        <Button onClick ={handlMultiValueForm} text={'Add Employee'}></Button>
                     </div>
                 </div>
+                <div className="bg-white ml-[300px] mr-[30px] py-5 px-2 mt-4 rounded-xl pl-4 pr-16">
+                    {/* this is search console  */}
+                    <div className="w-full flex justify-between items-center px-[14px]">
+                        <div className="w-full flex justify-between items-center px-[14px] mr-6 border-[1px] rounded-2xl">
+                            <div className="grow flex items-center">
+                                <label htmlFor="search" className="text-2xl grow-0"><GrSearch /></label>
+                                <input type="text" id="search" placeholder="Search Customers..." className="input grow focus:outline-none w-full" />
+                            </div>
+                            <button className="text-2xl"><HiOutlineAdjustmentsHorizontal /></button>
+                        </div>
+                        {/* action button here  */}
+                        <div className="btn btn-outline rounded-2xl border-neutral-200 hover:bg-[#304FFD] hover:border-none ">
+                            <button>Action</button>
+                            <span className="text-2xl">
+                                <RiArrowDropDownLine></RiArrowDropDownLine>
+                            </span>
 
-                <div className="bg-white mx-[30px] mt-4">
-                    <table className="table">
+                        </div>
+                    </div>
+
+
+                    <table className="table mt-8">
                         {/* head */}
-                        <thead>
+                        <thead className="text-base">
                             <tr>
                                 <th>
                                     <label>
                                         <input type="checkbox" className="checkbox" />
                                     </label>
                                 </th>
-                                <th>Employee Name</th>
-                                <th>Location</th>
-                                <th>Phone</th>
-                                <th>Date</th>
-                                <th>Status</th>
+                                <th>Employee Name <span className="inline-flex"><IoMdArrowDropdown /></span></th>
+                                <th>Location <span className="inline-flex"><IoMdArrowDropdown /></span></th>
+                                <th>Phone <span className="inline-flex"><IoMdArrowDropdown /></span></th>
+                                <th>Date <span className="inline-flex"><IoMdArrowDropdown /></span></th>
+                                <th>Status <span className="inline-flex"><IoMdArrowDropdown /></span></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -81,7 +122,17 @@ const EmployeesInfoTable = () => {
                                         {employee.date}
                                     </td>
                                     <td>
-                                        <button className="status-btn">{employee.status}</button>
+                                        {
+                                            employee.status === "Active" ? <button className="status-btn-green">{employee.status}</button>
+                                                :
+                                                <button className="status-btn-orange">{employee.status}</button>
+                                        }
+
+                                    </td>
+                                    <td>
+                                        <button className="btn btn-circle border-none hover:bg-gray-200 bg-transparent">
+                                            <HiDotsVertical></HiDotsVertical>
+                                        </button>
                                     </td>
 
                                 </tr>

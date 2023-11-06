@@ -9,7 +9,7 @@ export const router = createBrowserRouter([
         element: <Main></Main>,
         children: [
             {
-                path: 'employeeinfotable',
+                path: 'employee-info-table',
                 element: <EmployeesInfoTable></EmployeesInfoTable>
             }
         ]
