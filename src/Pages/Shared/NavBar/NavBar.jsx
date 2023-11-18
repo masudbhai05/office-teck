@@ -24,17 +24,17 @@ const NavBar = () => {
                             <div className="flex-none">
                                 <ul className="menu menu-horizontal px-1">
                                     <li>
-                                        <details className='relative'>
-                                            <summary className='text-[#3F434A]'>
+                                        <div className='relative dropdown dropdown-bottom'>
+                                            <label tabIndex={0} className='text-[#3F434A]'>
                                                 ArtTemplate
-                                            </summary>
-                                            <ul className="w-[200px] absolute right-0 top-8 p-2 bg-base-100">
+                                            </label>
+                                            <ul tabIndex={0}  className="dropdown-content absolute right-1 z-[1] menu p-2 shadow-2xl bg-base-100 rounded-box w-52">
                                                 <li><Link>Link 1</Link></li>
                                                 <li><Link>Link 2</Link></li>
                                                 <li><Link>Link 2</Link></li>
                                                 <li><Link>Link 2</Link></li>
                                             </ul>
-                                        </details>
+                                        </div>
                                     </li>
                                 </ul>
                             </div>

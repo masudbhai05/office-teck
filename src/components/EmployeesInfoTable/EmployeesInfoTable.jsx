@@ -4,26 +4,44 @@ import { HiOutlineAdjustmentsHorizontal } from "react-icons/hi2";
 import { HiDotsVertical } from "react-icons/hi";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { IoMdArrowDropdown } from "react-icons/io";
-import Button from "../Button/Button";
+import { FaPlus } from "react-icons/fa6";
+import { FaRegTrashAlt } from "react-icons/fa";
+
 import AddEmployeeForm from "../Form/AddEmployeeForm";
+
 
 const EmployeesInfoTable = () => {
     const [employees, setEmployees] = useState([])
+    const [openEmployeeModal, setOpenEmployeeModal] = useState(false)
 
     useEffect(() => {
-        fetch('UserInfo.json')
+        fetch('http://localhost:5000/api/v1/employees')
             .then(res => res.json())
-            .then(data => setEmployees(data))
+            .then(data => setEmployees(data.data))
     }, [])
 
     console.log(employees);
 
     const handlMultiValueForm = () => {
-        <AddEmployeeForm></AddEmployeeForm>
+        setOpenEmployeeModal(true)
+    }
+    const handleCloseModal = () => {
+        setOpenEmployeeModal(false)
+    }
+
+    const handleDelete = (employee) => {
+        fetch(`http://localhost:5000/api/v1/employees/${employee.id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => console.log(data))
     }
 
     return (
         <>
+            {
+                openEmployeeModal && <AddEmployeeForm onClose={handleCloseModal}> </AddEmployeeForm>
+            }
             <div className="table-data mt-[97px]">
                 <div className="flex justify-between items-center ml-[300px] mr-[30px]">
                     <div className="">
@@ -47,7 +65,7 @@ const EmployeesInfoTable = () => {
                         </ul>
                     </div>
                     <div>
-                        <Button onClick ={handlMultiValueForm} text={'Add Employee'}></Button>
+                        <button className="cta-btn" onClick={handlMultiValueForm}><FaPlus></FaPlus> Add Employee</button>
                     </div>
                 </div>
                 <div className="bg-white ml-[300px] mr-[30px] py-5 px-2 mt-4 rounded-xl pl-4 pr-16">
@@ -113,13 +131,13 @@ const EmployeesInfoTable = () => {
                                         </div>
                                     </td>
                                     <td>
-                                        <p className="text-sm opacity-50">{employee.location}</p>
+                                        <p className="text-sm opacity-50">{employee.address}</p>
                                     </td>
                                     <td>
                                         {employee.phone}
                                     </td>
                                     <td>
-                                        {employee.date}
+                                        {employee.createdAt}
                                     </td>
                                     <td>
                                         {
@@ -130,9 +148,15 @@ const EmployeesInfoTable = () => {
 
                                     </td>
                                     <td>
-                                        <button className="btn btn-circle border-none hover:bg-gray-200 bg-transparent">
-                                            <HiDotsVertical></HiDotsVertical>
-                                        </button>
+                                        <div className="dropdown dropdown-left">
+                                            <label tabIndex={0} className="btn m-1 rounded-full"><HiDotsVertical/></label>
+                                            <ul tabIndex={0} className="p-2 shadow-xl  menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+                                                <li><button>Edit</button></li>
+                                                <li className="mb-2"><button>Details</button></li>
+                                                <hr />
+                                                <li className="mt-2"><button onClick={() => { handleDelete(employee) }} className="text-red-600 hover:bg-red-600 hover:text-white"><FaRegTrashAlt /> Delete</button></li>
+                                            </ul>
+                                        </div>
                                     </td>
 
                                 </tr>
@@ -140,6 +164,7 @@ const EmployeesInfoTable = () => {
 
                         </tbody>
                     </table>
+                    {/* TO DO: Pagination */}
                 </div>
 
             </div >

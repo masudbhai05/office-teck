@@ -6,7 +6,7 @@ import { FiUsers, FiLayers, FiClipboard } from "react-icons/fi";
 
 const SideBar = () => {
     return (
-        <div className="w-[270px] h-screen bg-[#000] fixed top-0 z-10">
+        <div className="w-[270px] h-screen bg-white fixed top-0 z-10 border-r-2">
             <img className="ml-7 mt-5" src="/src/assets/logo.png" alt="" />
             <ul className=" menus mt-8">
                 {/* Sidebar content here */}

@@ -1,0 +1,83 @@
+[
+    {
+      "id": "01",
+      "title": "Website Redesign",
+      "company": "GitLab Inc.",
+      "description": "It is necessary to develop a website redesign in a corporate style.",
+      "progress": "50",
+      "duration": "5 days left",
+      "image": "https://i.ibb.co/0mxYwgR/1.png",
+      "brandImage": "https://i.ibb.co/0mxYwgR/1.png"
+    },
+    {
+      "id": "02",
+      "title": "Mobile App Development",
+      "company": "Tech Innovators",
+      "description": "Create a mobile app with innovative features.",
+      "progress": "75",
+      "duration": "10 days left",
+      "image": "https://i.ibb.co/0mxYwgR/2.png",
+      "brandImage": "https://i.ibb.co/0mxYwgR/2.png"
+    },
+    {
+      "id": "03",
+      "title": "Product Launch",
+      "company": "LaunchPad Co.",
+      "description": "Plan and execute the launch of a new product.",
+      "progress": "30",
+      "duration": "15 days left",
+      "image": "https://i.ibb.co/0mxYwgR/3.png",
+      "brandImage": "https://i.ibb.co/0mxYwgR/3.png"
+    },
+    {
+      "id": "04",
+      "title": "E-commerce Platform Upgrade",
+      "company": "Shopify Solutions",
+      "description": "Upgrade the e-commerce platform to enhance user experience.",
+      "progress": "60",
+      "duration": "7 days left",
+      "image": "https://i.ibb.co/0mxYwgR/4.png",
+      "brandImage": "https://i.ibb.co/0mxYwgR/4.png"
+    },
+    {
+      "id": "05",
+      "title": "Social Media Campaign",
+      "company": "Social Buzz Agency",
+      "description": "Run a social media campaign to increase brand awareness.",
+      "progress": "40",
+      "duration": "12 days left",
+      "image": "https://i.ibb.co/0mxYwgR/5.png",
+      "brandImage": "https://i.ibb.co/0mxYwgR/5.png"
+    },
+    {
+      "id": "06",
+      "title": "Data Security Audit",
+      "company": "Secure Systems Ltd.",
+      "description": "Conduct a thorough audit to ensure data security compliance.",
+      "progress": "55",
+      "duration": "8 days left",
+      "image": "https://i.ibb.co/0mxYwgR/6.png",
+      "brandImage": "https://i.ibb.co/0mxYwgR/6.png"
+    },
+    {
+      "id": "07",
+      "title": "Training Program Development",
+      "company": "Learning Solutions Inc.",
+      "description": "Develop a comprehensive training program for employees.",
+      "progress": "70",
+      "duration": "6 days left",
+      "image": "https://i.ibb.co/0mxYwgR/7.png",
+      "brandImage": "https://i.ibb.co/0mxYwgR/7.png"
+    },
+    {
+      "id": "08",
+      "title": "Event Planning",
+      "company": "Event Masters",
+      "description": "Plan and organize a corporate event with attention to detail.",
+      "progress": "25",
+      "duration": "18 days left",
+      "image": "https://i.ibb.co/0mxYwgR/8.png",
+      "brandImage": "https://i.ibb.co/0mxYwgR/8.png"
+    }
+  ]
+  
