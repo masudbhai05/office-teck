@@ -5,19 +5,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 body {
-    background-color: #F8F8F8;
     font-family: 'Poppins', sans-serif;
     position: relative;
     width: 100%;
-    
+
 }
 
 /* this is header menu  */
-.app-header{
-position: fixed;
-top: 0;
-width: 100%;
-z-index: 3;
+.app-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 3;
 }
 
 /* this class is located from SideBar component  */
@@ -29,13 +28,14 @@ z-index: 3;
     color: #3F434A;
     line-height: 1;
     transition: all 0.3s ease;
-    
+
 }
 
 .menus li:hover {
     border-left: 4px solid #304FFD;
     background-color: #F8F8F8;
 }
+
 .menus li a {
     font-size: 16px;
     display: flex;
@@ -43,13 +43,14 @@ z-index: 3;
     gap: 13px;
 }
 
-.status-btn-green{
+.status-btn-green {
     color: #49C96D;
     background-color: #2dcd5a17;
     padding: 5px 20px;
     border-radius: 10px;
 }
-.status-btn-orange{
+
+.status-btn-orange {
     color: #E56E19;
     background-color: #e56e1927;
     padding: 5px 20px;
@@ -68,10 +69,12 @@ z-index: 3;
     padding: 8px 16px;
     transition: all 0.5s ease;
 }
+
 .cta-btn:hover {
     box-shadow: 0px 3px 0px -1px #4c4c4c;
     background-color: #000000;
 }
+
 .cta-btn-outline {
     display: flex;
     justify-content: center;
@@ -83,30 +86,33 @@ z-index: 3;
     padding: 8px 16px;
     transition: all 0.5s ease;
 }
+
 .cta-btn-outline:hover {
     background-color: #363636;
     color: #fff;
 }
- 
-.table-data{
+
+.table-data {
     position: absolute;
     width: 100%;
     z-index: 2;
 }
 
-.modal-box{
+.modal-box {
     max-height: 700px;
-    
+
 }
-::-webkit-scrollbar{
+
+::-webkit-scrollbar {
     width: 5px;
 }
-::-webkit-scrollbar-thumb{
+
+::-webkit-scrollbar-thumb {
     background: linear-gradient(#0c7cc7, #abc4ff);
     border-radius: 10px;
 }
 
-.cross-btn{
+.cross-btn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -116,11 +122,16 @@ z-index: 3;
     background-color: #F8F8F8;
     transition: all 0.2s ease;
 }
-.cross-btn:hover{
+
+.cross-btn:hover {
     background-color: #ff0000;
     color: #fff;
 }
-hr{
+
+hr {
     border-color: #ff0000;
 }
 
+.CustomShadow {
+    box-shadow: 1px 3px 15px #00000014;
+}

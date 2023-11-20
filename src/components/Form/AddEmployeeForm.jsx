@@ -1,13 +1,12 @@
-import { useState } from "react";
+
 import { RxCross1 } from "react-icons/rx";
-// import { FaRegTrashAlt } from "react-icons/fa";
-// import { LuUpload } from "react-icons/lu";
-// import { TfiZip } from "react-icons/tfi";
-// import { FaPlus } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 // eslint-disable-next-line react/prop-types
 const AddEmployeeForm = ({ onClose }) => {
+    const navigate = useNavigate()
 
     const HandleSubmit = (event) => {
         event.preventDefault();
@@ -17,7 +16,8 @@ const AddEmployeeForm = ({ onClose }) => {
         const phone = form.number.value;
         const address = form.address.value;
         const salary = form.salary.value;
-        const addEmployee = { name, email, phone, address, salary, attachment:"photo.png",profileImage:"image.png" };
+        const profileImage = form.profileImage.value;
+        const addEmployee = { name, email, phone, address, salary, attachment:"photo.png",profileImage };
         fetch(`http://localhost:5000/api/v1/employees/create-employee`, {
             method: "POST",
             headers: {
@@ -31,7 +31,19 @@ const AddEmployeeForm = ({ onClose }) => {
             }
             return response.json();
         })
-        .then(data => console.log(data))
+            .then(data => {
+                if (data.status === "success") {
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: "Employee Added",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    onClose()
+                    navigate('/employee-info-table')
+                }
+        })
         .catch(error => console.error('Error:', error));
 
     }
@@ -49,7 +61,7 @@ const AddEmployeeForm = ({ onClose }) => {
                     <form onSubmit={HandleSubmit}>
                         <div>
                             <div className="my-[15px]">
-                                <h2 className="text-2xl">Profile</h2>
+                                <h2 className="text-2xl">Add Employee</h2>
                                 <div className="flex justify-center items-center">
                                     <div className="w-[160px] h-[160px] flex justify-center items-center rounded-full  border-2 border-gray-300 border-dashed">
                                         <div className="w-[140px] h-[140px] bg-violet-700 flex justify-center items-center rounded-full">
@@ -78,6 +90,10 @@ const AddEmployeeForm = ({ onClose }) => {
                                 <div className="flex flex-col">
                                     <label htmlFor="salary">Salary</label>
                                     <input type="text" className="rounded-[13px] p-2 mt-2 focus:outline-slate-400 border text-black" placeholder="Salary" id="salary" name="salary" />
+                                </div>
+                                <div className="flex flex-col">
+                                    <label htmlFor="image">Image Link</label>
+                                    <input type="text" className="rounded-[13px] p-2 mt-2 focus:outline-slate-400 border text-black" placeholder="Image Link" id="image" name="profileImage" />
                                 </div>
                             </div>
                         </div>

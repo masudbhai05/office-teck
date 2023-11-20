@@ -6,8 +6,13 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { FaPlus } from "react-icons/fa6";
 import { FaRegTrashAlt } from "react-icons/fa";
+import { CgDetailsMore } from "react-icons/cg";
+
 
 import AddEmployeeForm from "../Form/AddEmployeeForm";
+import { MdOutlineModeEdit } from "react-icons/md";
+import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 
 const EmployeesInfoTable = () => {
@@ -18,9 +23,7 @@ const EmployeesInfoTable = () => {
         fetch('http://localhost:5000/api/v1/employees')
             .then(res => res.json())
             .then(data => setEmployees(data.data))
-    }, [])
-
-    console.log(employees);
+    }, [employees])
 
     const handlMultiValueForm = () => {
         setOpenEmployeeModal(true)
@@ -34,7 +37,17 @@ const EmployeesInfoTable = () => {
             method: 'DELETE'
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                if (data.status === "success") {
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: "Employee Deleted",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+            })
     }
 
     return (
@@ -121,7 +134,7 @@ const EmployeesInfoTable = () => {
                                         <div className="flex items-center space-x-3">
                                             <div className="avatar">
                                                 <div className="mask mask-squircle w-12 h-12">
-                                                    <img src={employee.image} alt="Avatar Tailwind CSS Component" />
+                                                    <img src={employee.profileImage} alt="Avatar Tailwind CSS Component" />
                                                 </div>
                                             </div>
                                             <div>
@@ -151,8 +164,8 @@ const EmployeesInfoTable = () => {
                                         <div className="dropdown dropdown-left">
                                             <label tabIndex={0} className="btn m-1 rounded-full"><HiDotsVertical/></label>
                                             <ul tabIndex={0} className="p-2 shadow-xl  menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
-                                                <li><button>Edit</button></li>
-                                                <li className="mb-2"><button>Details</button></li>
+                                                <li><Link to={`/employee-update/${employee.id}`}><MdOutlineModeEdit /> Edit</Link></li>
+                                                <li className="mb-2"><Link to={`/employee-details/${employee.id}`}><CgDetailsMore /> Details</Link></li>
                                                 <hr />
                                                 <li className="mt-2"><button onClick={() => { handleDelete(employee) }} className="text-red-600 hover:bg-red-600 hover:text-white"><FaRegTrashAlt /> Delete</button></li>
                                             </ul>
