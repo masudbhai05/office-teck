@@ -25,7 +25,7 @@ body {
     padding-top: 18px;
     padding-bottom: 18px;
     padding-left: 28px;
-    color: #3F434A;
+    color: #ffffff;
     line-height: 1;
     transition: all 0.3s ease;
 
@@ -34,6 +34,12 @@ body {
 .menus li:hover {
     border-left: 4px solid #304FFD;
     background-color: #F8F8F8;
+    color: #000000;
+}
+.menus li.active {
+    border-left: 4px solid #fd5230;
+    background-color: #F8F8F8;
+    color: #000000;
 }
 
 .menus li a {
@@ -69,7 +75,23 @@ body {
     padding: 8px 16px;
     transition: all 0.5s ease;
 }
+.cta-btn-log  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    background-color: #304FFD;
+    color: #fff;
+    border-radius: 15px;
+    box-shadow: 0px 3px 0px -1px #0C21C7;
+    padding: 8px 16px;
+    transition: all 0.5s ease;
+}
 
+.cta-btn-log:hover {
+    box-shadow: 0px 3px 0px -1px #7a1701;
+    background-color: #f23e1a;
+}
 .cta-btn:hover {
     box-shadow: 0px 3px 0px -1px #4c4c4c;
     background-color: #000000;

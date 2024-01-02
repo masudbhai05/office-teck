@@ -1,12 +1,12 @@
 import { AiOutlineBell, AiOutlineSearch } from "react-icons/ai";
 import { Link } from 'react-router-dom';
 
-const NavBar = () => {
+const NavBar = ({ selectedOption }) => {
     return (
         <header className="app-header">
             <div className="ml-[270px] flex items-center justify-between h-16 bg-base-100  border-b-2 border-[#E8E9EB]">
                 <div className="navbar-center ml-[30px]">
-                    <span className="normal-case text-xl">Employees</span>
+                    <span className="normal-case text-xl">{selectedOption}</span>
                 </div>
                 <div className='mr-[30px] flex items-center'>
                     <button className="btn bg-transparent btn-circle border-none ml-[18px]">
@@ -28,9 +28,9 @@ const NavBar = () => {
                                             <label tabIndex={0} className='text-[#3F434A]'>
                                                 ArtTemplate
                                             </label>
-                                            <ul tabIndex={0}  className="dropdown-content absolute right-1 z-[1] menu p-2 shadow-2xl bg-base-100 rounded-box w-52">
-                                                <li><Link>Link 1</Link></li>
-                                                <li><Link>Link 2</Link></li>
+                                            <ul tabIndex={0} className="dropdown-content absolute right-1 z-[1] menu p-2 shadow-2xl bg-base-100 rounded-box w-52">
+                                                <li><Link to={"/profile"}>Profile</Link></li>
+                                                <li><Link to={"/signup"}>Sign Up</Link></li>
                                                 <li><Link>Link 2</Link></li>
                                                 <li><Link>Link 2</Link></li>
                                             </ul>

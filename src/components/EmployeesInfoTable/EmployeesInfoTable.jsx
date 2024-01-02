@@ -13,6 +13,7 @@ import AddEmployeeForm from "../Form/AddEmployeeForm";
 import { MdOutlineModeEdit } from "react-icons/md";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 
 const EmployeesInfoTable = () => {
@@ -52,6 +53,9 @@ const EmployeesInfoTable = () => {
 
     return (
         <>
+             <Helmet>
+                <title>Employees</title>
+            </Helmet>
             {
                 openEmployeeModal && <AddEmployeeForm onClose={handleCloseModal}> </AddEmployeeForm>
             }
@@ -115,7 +119,7 @@ const EmployeesInfoTable = () => {
                                 <th>Location <span className="inline-flex"><IoMdArrowDropdown /></span></th>
                                 <th>Phone <span className="inline-flex"><IoMdArrowDropdown /></span></th>
                                 <th>Date <span className="inline-flex"><IoMdArrowDropdown /></span></th>
-                                <th>Status <span className="inline-flex"><IoMdArrowDropdown /></span></th>
+                                <th>Role <span className="inline-flex"><IoMdArrowDropdown /></span></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -134,7 +138,7 @@ const EmployeesInfoTable = () => {
                                         <div className="flex items-center space-x-3">
                                             <div className="avatar">
                                                 <div className="mask mask-squircle w-12 h-12">
-                                                    <img src={employee.profileImage} alt="Avatar Tailwind CSS Component" />
+                                                    <img src={employee.image} className="rounded-full" alt="Avatar Tailwind CSS Component" />
                                                 </div>
                                             </div>
                                             <div>
@@ -153,16 +157,11 @@ const EmployeesInfoTable = () => {
                                         {employee.createdAt}
                                     </td>
                                     <td>
-                                        {
-                                            employee.status === "Active" ? <button className="status-btn-green">{employee.status}</button>
-                                                :
-                                                <button className="status-btn-orange">{employee.status}</button>
-                                        }
-
+                                        {employee.supervisor}
                                     </td>
                                     <td>
                                         <div className="dropdown dropdown-left">
-                                            <label tabIndex={0} className="btn m-1 rounded-full"><HiDotsVertical/></label>
+                                            <label tabIndex={0} className="btn m-1 rounded-full"><HiDotsVertical /></label>
                                             <ul tabIndex={0} className="p-2 shadow-xl  menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
                                                 <li><Link to={`/employee-update/${employee.id}`}><MdOutlineModeEdit /> Edit</Link></li>
                                                 <li className="mb-2"><Link to={`/employee-details/${employee.id}`}><CgDetailsMore /> Details</Link></li>

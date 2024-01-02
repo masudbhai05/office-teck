@@ -15,9 +15,23 @@ const AddEmployeeForm = ({ onClose }) => {
         const email = form.email.value;
         const phone = form.number.value;
         const address = form.address.value;
-        const salary = form.salary.value;
-        const profileImage = form.profileImage.value;
-        const addEmployee = { name, email, phone, address, salary, attachment:"photo.png",profileImage };
+        const supervisor = form.supervisor.value;
+        const image = form.image.value;
+        const addEmployee = {
+            name,
+            email,
+            phone,
+            emergencyContact: "Emergency Contact 2",
+            address,
+            bloodGroup: "A-",
+            joiningDate: "2022-03-01T08:00:00.000Z",
+            department: "HR",
+            supervisor,
+            nidNumber: "NID654321",
+            passportNumber: "PassportXYZ456",
+            image,
+            bio: "Jane Smith is an enthusiastic team player with excellent interpersonal skills."
+        };
         fetch(`http://localhost:5000/api/v1/employees/create-employee`, {
             method: "POST",
             headers: {
@@ -64,8 +78,8 @@ const AddEmployeeForm = ({ onClose }) => {
                                 <h2 className="text-2xl">Add Employee</h2>
                                 <div className="flex justify-center items-center">
                                     <div className="w-[160px] h-[160px] flex justify-center items-center rounded-full  border-2 border-gray-300 border-dashed">
-                                        <div className="w-[140px] h-[140px] bg-violet-700 flex justify-center items-center rounded-full">
-                                            <img src="/src/assets/Avater/girl-avater.png" alt="" />
+                                        <div className="w-[140px] h-[140px] bg-[#e8eff4] flex justify-center items-center rounded-full">
+                                            <img src="/src/assets/Avater/staff.png" className="w-[100px]" alt="" />
                                         </div>
                                     </div>
                                 </div>
@@ -88,12 +102,12 @@ const AddEmployeeForm = ({ onClose }) => {
                                     <input type="text" className="rounded-[13px] p-2 mt-2 focus:outline-slate-400 border text-black" placeholder="Location" id="address" name="address" />
                                 </div>
                                 <div className="flex flex-col">
-                                    <label htmlFor="salary">Salary</label>
-                                    <input type="text" className="rounded-[13px] p-2 mt-2 focus:outline-slate-400 border text-black" placeholder="Salary" id="salary" name="salary" />
+                                    <label htmlFor="role">Role</label>
+                                    <input type="text" className="rounded-[13px] p-2 mt-2 focus:outline-slate-400 border text-black" placeholder="Role" id="role" name="supervisor" />
                                 </div>
                                 <div className="flex flex-col">
                                     <label htmlFor="image">Image Link</label>
-                                    <input type="text" className="rounded-[13px] p-2 mt-2 focus:outline-slate-400 border text-black" placeholder="Image Link" id="image" name="profileImage" />
+                                    <input type="text" className="rounded-[13px] p-2 mt-2 focus:outline-slate-400 border text-black" placeholder="Image Link" id="image" name="image" />
                                 </div>
                             </div>
                         </div>

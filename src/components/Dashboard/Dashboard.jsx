@@ -1,8 +1,13 @@
+import { Helmet } from "react-helmet";
+import ChartLayout from "./ChartLayout/ChartLayout";
 
 const Dashboard = () => {
     return (
         <div className="ml-[300px] mt-[97px]">
-            <h1 className="text-4xl">This is Dashboard</h1>
+            <Helmet>
+                <title>Dashboard</title>
+            </Helmet>
+            <ChartLayout></ChartLayout>
         </div>
     );
 };

@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 // eslint-disable-next-line react/prop-types
 const ProjectCard = ({ project }) => {
     // eslint-disable-next-line react/prop-types
-    const { id, name, description, projectImage } = project;
+    const { id, name, description, image } = project;
     
     const handleDelete = (id) => {
         fetch(`http://localhost:5000/api/v1/projects/${id}`, {
@@ -33,7 +33,7 @@ const ProjectCard = ({ project }) => {
             <div className="card-body">
                 <div className="flex justify-between gap-3">
                     <div className="flex justify-center items-center gap-3">
-                        <img className="w-[50px] rounded-full" src={projectImage} alt="Avatar" />
+                        <img className="w-[50px] rounded-full" src={image} alt="Avatar" />
                         <h2 className="text-base font-bold">{name}</h2>
                     </div>
                     <div className="dropdown dropdown-left">

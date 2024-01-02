@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { FaPlus } from "react-icons/fa6";
 import ProjectCard from "../ProjectCard/ProjectCard";
 import AddProjectForm from "../AddProjectForm/AddProjectForm";
+import { Helmet } from "react-helmet";
 
 
 
@@ -27,6 +28,9 @@ const ProjectInfo = () => {
     }
     return (
         <>
+             <Helmet>
+                <title>Projects</title>
+            </Helmet>
             {
                 openProjectModal && <AddProjectForm onClose={handleCloseModal}> </AddProjectForm>
             }
